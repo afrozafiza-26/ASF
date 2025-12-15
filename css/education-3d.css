@@ -1,0 +1,451 @@
+/* ==========================================
+   ✨ 3D FUTURISTIC EDUCATION SECTION
+   ========================================== */
+
+.education-section-3d {
+    position: relative;
+    min-height: 100vh;
+    padding: 6rem 5%;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--bg-color) 0%, rgba(212, 165, 165, 0.08) 50%, var(--bg-color) 100%);
+}
+
+.edu-3d-container {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 3D Canvas */
+#edu-3d-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Custom Cursor for Education Section */
+.edu-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    display: none;
+    transition: transform 0.1s ease;
+}
+
+.edu-cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.edu-cursor-ring {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+    animation: eduCursorPulse 2s ease-in-out infinite;
+}
+
+@keyframes eduCursorPulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 0.2;
+    }
+}
+
+/* Section Header */
+.edu-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    z-index: 10;
+}
+
+.edu-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+}
+
+.edu-tagline {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Orbital Container */
+.orbital-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    perspective: 1000px;
+    z-index: 10;
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   ORBITAL CARDS - LIGHT MODE (HIGH VISIBILITY)
+   ============================================ */
+.orbital-card {
+    position: relative;
+    width: 320px;
+    background: #ffffff;
+    border: 2px solid #d4a5a5;
+    border-radius: 24px;
+    padding: 2rem;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    box-shadow: 0 15px 50px rgba(212, 165, 165, 0.4),
+        0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   ORBITAL CARDS - DARK MODE
+   ============================================ */
+[data-theme="dark"] .orbital-card {
+    background: #2d2424;
+    border-color: #d4a5a5;
+    box-shadow: 0 15px 50px rgba(212, 165, 165, 0.25),
+        0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.orbital-card:hover {
+    transform: translateY(-15px) rotateX(5deg) scale(1.05);
+    border-color: var(--primary-color);
+    box-shadow: 0 25px 60px rgba(212, 165, 165, 0.5);
+}
+
+/* Focus effect - others fade */
+.orbital-container:hover .orbital-card:not(:hover) {
+    opacity: 0.6;
+    transform: scale(0.95);
+    filter: blur(1px);
+}
+
+/* Card Glow Effect */
+.card-glow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--gradient);
+    border-radius: 26px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+    filter: blur(15px);
+}
+
+.orbital-card:hover .card-glow {
+    opacity: 0.5;
+}
+
+.active-glow {
+    opacity: 0.3;
+    animation: activeGlowPulse 3s ease-in-out infinite;
+}
+
+@keyframes activeGlowPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Card Content */
+.orbital-card .card-content {
+    position: relative;
+    z-index: 1;
+}
+
+.card-number {
+    font-size: 3rem;
+    font-weight: 700;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.4;
+    position: absolute;
+    top: -1rem;
+    right: 0;
+    font-family: 'Outfit', sans-serif;
+}
+
+.card-line {
+    width: 40px;
+    height: 3px;
+    background: var(--gradient);
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+}
+
+.orbital-card h3 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.card-year {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.card-institution {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+}
+
+.card-degree {
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.card-grade {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.grade-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--secondary-color);
+}
+
+.grade-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.card-status {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Completed status - uses pink/rose theme color */
+.card-status.completed {
+    background: rgba(212, 165, 165, 0.2);
+    color: #9e7f7f;
+    border: 1px solid rgba(212, 165, 165, 0.5);
+}
+
+/* Current status - pulsing pink */
+.card-status.current {
+    background: rgba(212, 165, 165, 0.25);
+    color: #d4a5a5;
+    border: 1px solid rgba(212, 165, 165, 0.6);
+    animation: currentPulse 2s ease-in-out infinite;
+}
+
+@keyframes currentPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(212, 165, 165, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(212, 165, 165, 0);
+    }
+}
+
+/* Current Indicator */
+.current-indicator {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--gradient);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(212, 165, 165, 0.4);
+    animation: indicatorBounce 2s ease-in-out infinite;
+}
+
+@keyframes indicatorBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Orbital Ring */
+.orbital-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.ring-track {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border: 1px dashed rgba(212, 165, 165, 0.4);
+    border-radius: 50%;
+}
+
+.ring-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--gradient);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(212, 165, 165, 0.6);
+}
+
+.ring-particle.p1 {
+    animation: orbitParticle 20s linear infinite;
+}
+
+.ring-particle.p2 {
+    animation: orbitParticle 20s linear infinite;
+    animation-delay: -6.66s;
+}
+
+.ring-particle.p3 {
+    animation: orbitParticle 20s linear infinite;
+    animation-delay: -13.33s;
+}
+
+@keyframes orbitParticle {
+    0% {
+        transform: rotate(0deg) translateX(300px) rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg) translateX(300px) rotate(-360deg);
+    }
+}
+
+/* Navigation Dots */
+.orbital-nav {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+    z-index: 10;
+}
+
+.nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.nav-dot:hover {
+    background: rgba(212, 165, 165, 0.3);
+    transform: scale(1.2);
+}
+
+.nav-dot.active {
+    background: var(--primary-color);
+    transform: scale(1.3);
+}
+
+/* Responsive 3D Education */
+@media (max-width: 1100px) {
+    .orbital-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .orbital-card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .orbital-ring {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .edu-title {
+        font-size: 2.5rem;
+    }
+
+    .orbital-card {
+        padding: 1.5rem;
+    }
+
+    .card-number {
+        font-size: 2rem;
+    }
+
+    .edu-cursor {
+        display: none !important;
+    }
+}

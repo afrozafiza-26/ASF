@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Afroza Sultana Fiza</title>
+    <meta name="description" content="Browse all projects by Afroza Sultana Fiza - Internify, TaxEase, Survey BD">
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Projects Page Specific Styles */
+        .projects-page-header {
+            padding: 8rem 5% 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--bg-color) 0%, rgba(212, 165, 165, 0.1) 100%);
+        }
+
+        .projects-page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .projects-page-header p {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        .all-projects-section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-detail-card {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--divider-color);
+            transition: transform 0.3s ease;
+        }
+
+        .project-detail-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-detail-card:nth-child(even) {
+            grid-template-columns: 1.2fr 1fr;
+        }
+
+        .project-detail-card:nth-child(even) .project-detail-image {
+            order: 2;
+        }
+
+        .project-detail-image {
+            border-radius: 16px;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .project-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .project-detail-card:hover .project-detail-image img {
+            transform: scale(1.05);
+        }
+
+        .project-detail-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-detail-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--text-color);
+        }
+
+        .project-detail-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-badge {
+            padding: 0.4rem 1rem;
+            background: linear-gradient(135deg, rgba(212, 165, 165, 0.2), rgba(255, 196, 196, 0.2));
+            border-radius: 20px;
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(212, 165, 165, 0.3);
+        }
+
+        .project-detail-desc {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .project-btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .project-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 165, 165, 0.4);
+        }
+
+        .project-btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .project-btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: gap 0.3s ease;
+        }
+
+        .back-link:hover {
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+
+            .project-detail-card,
+            .project-detail-card:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+
+            .project-detail-card:nth-child(even) .project-detail-image {
+                order: 0;
+            }
+
+            .project-detail-image {
+                height: 220px;
+            }
+
+            .projects-page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cursor-follower"></div>
+
+    <nav class="navbar">
+        <div class="logo">Fiza.</div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#education">Education</a></li>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#projects" class="active">Projects</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <button id="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="projects-page-header">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        <h1>All Projects</h1>
+        <p>Explore my work in detail</p>
+    </header>
+
+    <section class="all-projects-section">
+        <!-- Project 1: Internify -->
+        <div class="project-detail-card">
+            <div class="project-detail-image">
+                <img src="img/projects/internify.png" alt="Internify Project">
+            </div>
+            <div class="project-detail-content">
+                <h2>Internify</h2>
+                <div class="project-detail-tech">
+                    <span class="tech-badge">React</span>
+                    <span class="tech-badge">Node.js</span>
+                    <span class="tech-badge">MongoDB</span>
+                    <span class="tech-badge">Express.js</span>
+                </div>
+                <p class="project-detail-desc">
+                    Internify is a comprehensive internship management platform designed to bridge the gap between
+                    students and companies. The platform allows students to discover internship opportunities, track
+                    their applications, and manage their profiles. Companies can post internship listings, review
+                    applications, and connect with potential interns through an intuitive dashboard.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com/afrozafiza-26/Internify" target="_blank"
+                        class="project-btn project-btn-primary">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2: TaxEase -->
+        <div class="project-detail-card">
+            <div class="project-detail-image">
+                <img src="img/projects/taxease.png" alt="TaxEase Project">
+            </div>
+            <div class="project-detail-content">
+                <h2>TaxEase</h2>
+                <div class="project-detail-tech">
+                    <span class="tech-badge">PHP</span>
+                    <span class="tech-badge">MySQL</span>
+                    <span class="tech-badge">Bootstrap</span>
+                    <span class="tech-badge">JavaScript</span>
+                </div>
+                <p class="project-detail-desc">
+                    TaxEase is an intuitive tax calculation and management system that simplifies the tax filing process
+                    for individuals and businesses. Features include automated tax calculations, filing status tracking,
+                    document management, and detailed tax reports. The system provides real-time calculations and
+                    helpful insights to maximize deductions while ensuring compliance.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com/afrozafiza-26/TaxEase" target="_blank"
+                        class="project-btn project-btn-primary">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 3: Survey BD -->
+        <div class="project-detail-card">
+            <div class="project-detail-image">
+                <img src="img/projects/surveybd.png" alt="Survey BD Project">
+            </div>
+            <div class="project-detail-content">
+                <h2>Survey BD</h2>
+                <div class="project-detail-tech">
+                    <span class="tech-badge">PHP</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">MySQL</span>
+                    <span class="tech-badge">CSS3</span>
+                </div>
+                <p class="project-detail-desc">
+                    Survey BD is a dynamic survey and polling platform tailored for collecting and analyzing public
+                    opinions in Bangladesh. Users can create customizable surveys, distribute them to targeted
+                    audiences, and view comprehensive analytics in real-time. The platform features multiple question
+                    types, response validation, and beautiful data visualizations for effective insights.
+                </p>
+                <div class="project-links">
+                    <a href="https://github.com/afrozafiza-26/Survey-bd" target="_blank"
+                        class="project-btn project-btn-primary">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Afroza Sultana Fiza. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
