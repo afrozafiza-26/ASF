@@ -240,7 +240,7 @@ if (typeof gsap !== 'undefined') {
             });
         });
 
-        // ✨ Research Interests Pills - Staggered Entrance Animation
+        // Research Interests Pills - Staggered Entrance Animation
         const researchInterests = document.querySelector('.research-interests');
         const interestPills = document.querySelectorAll('.interest-pill');
 
@@ -397,10 +397,10 @@ if (downloadBtn) {
     });
 }
 
-console.log('Portfolio loaded successfully! 🚀');
+console.log('Portfolio loaded successfully!');
 
 // ==========================================
-// ✨ EDUCATION JOURNEY ANIMATIONS
+// EDUCATION JOURNEY ANIMATIONS
 // ==========================================
 
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
@@ -530,7 +530,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 }
 
 // ==========================================
-// ✨ 3D FUTURISTIC EDUCATION SECTION
+// 3D FUTURISTIC EDUCATION SECTION
 // ==========================================
 
 // Custom Cursor for Education Section
@@ -743,7 +743,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 }
 
 // ==========================================
-// ✨ SKILLS UNIVERSE - 3D FLIP CARDS
+// SKILLS UNIVERSE - 3D FLIP CARDS
 // ==========================================
 
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {

@@ -1,5 +1,5 @@
 /* ==========================================
-   ✨ 3D FUTURISTIC EDUCATION SECTION
+   3D FUTURISTIC EDUCATION SECTION
    ========================================== */
 
 .education-section-3d {
@@ -447,5 +447,10 @@
 
     .edu-cursor {
         display: none !important;
+    }
+
+    /* Hide nav dots on mobile since all cards are visible */
+    .orbital-nav {
+        display: none;
     }
 }
